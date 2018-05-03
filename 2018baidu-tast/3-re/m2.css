@@ -1,0 +1,43 @@
+.main{
+	width: 90%;
+	max-width: 900px;
+	background-color: #ffffff;
+	margin: 0 auto;
+}
+
+h1,h2,h3,h5,p{
+	margin: 0;
+}
+
+.side-l{
+	height: 80px;
+	margin: 0 auto;
+	background-color: #696969;
+}
+
+.side-l h1{
+	line-height: 80px;
+}
+
+span{
+	font-weight: 600;
+}
+
+.side-r .box{
+	clear: both;
+	height: 120px;
+	border-bottom: 1px solid #ffffff;
+}
+
+.side-r h3{
+	float: left;
+	height: 120px;
+	background-color: #708090;
+	line-height: 120px;
+}
+
+.side-r .content{
+	float: left;
+	line-height: 1.2em;
+}
+
