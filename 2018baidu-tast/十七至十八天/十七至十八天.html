@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>IFE ECMAScript</title>
+    <style type="text/css">
+        .box{
+            width: 960px;
+            margin: 30px auto;
+            padding: 30px;
+            text-align: center;
+            border: 2px solid #a1a1a1;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h3>十进制转化</h3>
+        <input id="dec-number" type="number" placeholder="输入一个十进制非负整数">
+        <input id="bin-bit" type="number" placeholder="输入转化后二进制数字位数">
+        <button id="trans-btn">转化为二进制</button>
+        <p id="result">运算结果</p>
+        <script>
+    document.getElementById("trans-btn").onclick = function(){
+            var a = parseInt(document.getElementById("dec-number").value);
+            var b = parseInt(document.getElementById("bin-bit").value);
+            var rem = 0;
+            var numberbin = 0;
+            var le = 0;
+            if (a >=0 )
+            {
+                for (var i = 0; a != 0 ; i++) {
+                    rem = a % 2;
+                    a = parseInt(a / 2);
+                    numberbin = numberbin + rem * Math.pow(10,i);
+                    le = numberbin.toString().length;
+                }
+                if (b < le) {
+                    document.getElementById("result").innerHTML = numberbin;
+                    console.log("位数不够");
+                }
+                else{
+                    var diff = b - le;
+                    numberbin = new Array(diff + 1).join(0) + numberbin;                
+                }
+                document.getElementById("result").innerHTML = numberbin;
+            }
+             else {document.getElementById("result").innerHTML = "wrong";}
+         }
+        </script>
+    </div>
+    <div class="box">
+        <h3>3的小游戏</h3>
+        <button id="three-game" onclick="threegame()">点击获得结果</button>
+        <p id="rusult-2">结果</p>
+        <script>
+            function threegame(){
+                var rem = 0;
+                var threeGame = [];
+
+                for (var i = 0; i <101 ; i++) 
+                {
+                    threeGame.push(/3/.test(i) || i % 3 === 0 ? 'PA' : i);
+                }
+                console.log(threeGame)
+                document.getElementById("rusult-2").innerHTML = threeGame;
+            }          
+        </script>
+    </div>
+    <div class="box">
+        <button id="table-btn">九九乘法表</button>
+    <table id="result4" cellspacing=0></table>
+    <script>
+      document.getElementById("table-btn").onclick = function() {
+        var table = '';
+        for (var i = 1; i < 10; i++) {
+            table += "<tr>"
+            for (var j = 1; j <= i; j++) {
+                var a = i * j;
+                table = table + "<td>" + i + "x" + j + "=" + a + "," + "</td>";
+            }
+            table += "</tr>";
+        }
+        document.getElementById("result4").innerHTML = table;
+      }
+    </script>
+    </div>
+    <div class="box">
+    <button id="hello-btn">问好</button>
+    <P id="result5"></P>
+    <script>
+      document.getElementById("hello-btn").onclick = function(){
+        var myDate = new Date();
+        var hour = myDate.getHours();
+        switch(true){
+            case hour >= 0&&hour < 12:
+            document.getElementById("result5").innerHTML = "早上好";
+            break;
+            case hour >= 12&&hour <= 24:
+            document.getElementById("result5").innerHTML = "晚上好";
+            break;
+        }
+
+
+      }
+    </script>
+  </div>
+
+</body>
+</html>
